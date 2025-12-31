@@ -1,0 +1,637 @@
+/* ===== base ===== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #f5f5f7;
+  --bg-alt: #ffffff;
+  --bg-alt2: #f0f2f5;
+  --fg: #111827;
+  --muted: #6b7280;
+  --accent: #059669;
+  --border-soft: #e5e7eb;
+  --radius-lg: 20px;
+  --radius-md: 14px;
+  --shadow-soft: 0 16px 40px rgba(15, 23, 42, 0.08);
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "DM Sans", system-ui, -apple-system, BlinkMacSystemFont,
+    "Noto Sans JP", sans-serif;
+  color: var(--fg);
+  background: var(--bg);
+  line-height: 1.7;
+}
+
+/* ===== header ===== */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 32px;
+  background: rgba(245, 245, 247, 0.94);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(209, 213, 219, 0.6);
+}
+
+.logo {
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.site-nav a {
+  font-size: 14px;
+  text-decoration: none;
+  color: var(--muted);
+  margin-left: 18px;
+  position: relative;
+}
+
+.site-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 1px;
+  background: var(--fg);
+  transition: width 0.2s ease;
+}
+
+.site-nav a:hover {
+  color: var(--fg);
+}
+
+.site-nav a:hover::after {
+  width: 100%;
+}
+
+/* ===== hero ===== */
+
+.hero {
+  padding: 80px 32px 72px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: 56px;
+  align-items: center;
+}
+
+.hero-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+  margin: 0 0 12px;
+}
+
+.hero h1 {
+  font-size: 38px;
+  margin: 0 0 12px;
+}
+
+.hero-copy {
+  margin: 0 0 12px;
+  font-size: 15px;
+}
+
+.hero-sub {
+  margin: 0 0 24px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 22px;
+  font-size: 14px;
+  border-radius: 999px;
+  text-decoration: none;
+  color: #ffffff;
+  background: var(--accent);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.18);
+  transform: translateY(0);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+  box-shadow: 0 16px 34px rgba(15, 23, 42, 0.22);
+}
+
+.hero-image {
+  justify-self: end;
+  width: 100%;
+  max-width: 420px;
+}
+
+.hero-photo-frame {
+  position: relative;
+  width: 100%;
+  min-height: 260px;
+  border-radius: 26px;
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+}
+.hero-photo-frame img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  overflow: visible;
+}
+/* ヒーローのスライドショー用 */
+.hero-photo-frame.slideshow-hero {
+  position: relative;
+  width: 100%;
+  max-width: 420px;      /* お好みで */
+  border-radius: 26px;
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+}
+
+/* この中の img をフェード切り替え */
+.hero-photo-frame.slideshow-hero img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 1; /* ← まずは全部見える状態にしておく */
+  transition: opacity 1.6s ease-in-out;
+}
+
+/* 非アクティブのスライドだけ隠す */
+.hero-photo-frame.slideshow-hero img:not(.active) {
+  opacity: 0;
+}
+
+/* 表示中の画像（念のため明示） */
+.hero-photo-frame.slideshow-hero img.active {
+  opacity: 1;
+}
+
+.hero-photo-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at top left,
+    rgba(255, 255, 255, 0.2),
+    transparent 50%
+  );
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+
+
+/* ===== wave accent line (座標で引く波線) ===== */
+
+.accent-wave-line {
+  position: relative;
+  height: 60px;
+  margin-top: 8px;
+  margin-bottom: -8px;
+  overflow: visible;
+  z-index: 2;
+}
+
+
+/* ← これを追加 or 既存をこの形に上書き */
+.accent-wave-line-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible; /* ← ここがポイント！ */
+  display: block;
+}
+
+
+.accent-wave-line-path {
+  fill: none;
+  stroke: var(--accent);        /* 緑アクセント */
+  stroke-width: 1.5;           /* 太さ（viewBox基準なので小さめの数値） */
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  /* ここで「線を描く」アニメーション用のダッシュ設定 */
+  stroke-dasharray: 30;
+  stroke-dashoffset: 30;
+  animation: draw-wave-line 3.0s ease-out forwards 0.4s;
+}
+
+@keyframes draw-wave-line {
+  0% {
+    stroke-dashoffset: 30;    /* まだ何も見えない */
+  }
+  100% {
+    stroke-dashoffset: 0;       /* 全部描かれた状態 */
+  }
+}
+
+.accent-wave-line-path.reverse {
+  stroke-dashoffset: -30;
+  animation: draw-wave-line-reverse 2.5s ease-out forwards;
+}
+
+@keyframes draw-wave-line-reverse {
+  from { stroke-dashoffset: -30; }
+  to   { stroke-dashoffset: 0; }
+}
+
+/* ===== section base ===== */
+
+.section {
+  padding: 64px 32px;
+  background: var(--bg-alt);
+  position: relative;
+  z-index: 1;
+}
+
+.section-alt {
+  background: var(--bg-alt2);
+}
+
+.section-heading {
+  max-width: 1120px;
+  margin: 0 auto 32px;
+}
+
+.section-title {
+  font-size: 24px;
+  margin: 0 0 8px;
+  display: inline-block;
+  padding-left: 10px;
+  border-left: 3px solid var(--accent);
+}
+
+.section-lead {
+  margin: 0;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.section-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+/* ===== About ===== */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1.5fr);
+  gap: 32px;
+}
+
+.about-meta dl {
+  margin: 0;
+}
+
+.about-meta dt {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  margin-top: 10px;
+}
+
+.about-meta dd {
+  margin: 2px 0 6px;
+  font-size: 14px;
+}
+
+
+/* ===== Works ===== */
+
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 24px;
+}
+
+.work-card {
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border-soft);
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
+}
+
+.work-thumb img {
+  width: 100%;
+  aspect-ratio: 1/ 1;
+  object-fit: cover;
+  display: block;
+}
+
+.work-body {
+  padding: 18px 18px 16px;
+}
+
+.work-title {
+  margin: 0 0 4px;
+  font-size: 18px;
+}
+/* ▼ベース状態（線はまだ見えない） */
+.work-title {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 4px; /* 下の余白はお好みで */
+}
+
+.work-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3px; /* 線の太さ 調整OK */
+  background: linear-gradient(
+    to right,
+    rgba(0, 120, 80, 1),   /* 濃い緑（最初） */
+    rgba(0, 120, 80, 0.2), /* 薄め */
+    rgba(0, 120, 80, 0)    /* 透明 */
+  );
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.8s ease-out;
+}
+
+
+/* ▼アニメーションする状態 */
+.work-title.is-active::after {
+  transform: scaleX(1);
+}
+
+.work-meta {
+  margin: 0 0 10px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.work-desc {
+  margin: 0 0 12px;
+  font-size: 14px;
+}
+
+.work-detail {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4px;
+  margin: 0 0 10px;
+}
+
+.work-detail dt {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+}
+
+.work-detail dd {
+  margin: 0 0 4px;
+  font-size: 13px;
+}
+
+.work-links a {
+  font-size: 13px;
+  text-decoration: none;
+  color: var(--accent);
+  margin-right: 14px;
+}
+
+.work-links a:hover {
+  text-decoration: underline;
+}
+
+/* ===== Gallery ===== */
+
+.gallery-tags {
+  margin-bottom: 14px;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--accent);
+  margin-right: 8px;
+  margin-bottom: 4px;
+  background: rgba(5, 150, 105, 0.06);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+}
+
+.gallery-item {
+  margin: 0;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  position: relative;
+  background: #111;
+  cursor: pointer;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transform: scale(1.02);
+  transition: transform 0.35s ease, opacity 0.35s ease;
+  opacity: 0.96;
+}
+
+.gallery-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at top,
+    rgba(255, 255, 255, 0.12),
+    transparent 40%
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.06);
+  opacity: 1;
+}
+
+.gallery-item:hover::after {
+  opacity: 1;
+}
+
+/* ===== Skills ===== */
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.skill-block {
+  background: #ffffff;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-soft);
+  padding: 18px 20px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.04);
+  border-top: 3px solid var(--accent);
+}
+
+.skill-block h3 {
+  margin: 0 0 8px;
+  font-size: 16px;
+  letter-spacing: 0.06em;
+}
+
+.skill-block ul {
+  margin: 0;
+  padding-left: 1.2em;
+  font-size: 14px;
+}
+
+/* ===== Contact ===== */
+
+.contact-inner {
+  text-align: center;
+}
+
+.contact-mail a {
+  display: inline-block;
+  font-size: 16px;
+  text-decoration: none;
+  color: var(--fg);
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border-soft);
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.contact-mail a:hover {
+  background: #ffffff;
+}
+
+.contact-links {
+  margin-top: 16px;
+}
+
+.contact-links a {
+  font-size: 14px;
+  margin: 0 10px;
+  text-decoration: none;
+  color: var(--accent);
+}
+
+.contact-links a:hover {
+  text-decoration: underline;
+}
+
+/* ===== footer ===== */
+
+.site-footer {
+  padding: 24px 16px 32px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* ===== scroll animation base ===== */
+
+/* 初期状態：見えない＋少し下にずらす */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.5s ease-out,
+    transform 0.5s ease-out;
+}
+
+/* 種類別の初期 transform */
+[data-animate="fade-left"] {
+  transform: translateX(20px);
+}
+
+[data-animate="fade-right"] {
+  transform: translateX(-20px);
+}
+
+/* 表示状態 */
+.is-visible[data-animate] {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* ===== responsive ===== */
+
+@media (max-width: 768px) {
+  .site-header {
+    padding: 10px 16px;
+  }
+
+  .site-nav a {
+    margin-left: 12px;
+  }
+
+  .hero {
+    padding: 64px 16px 40px;
+  }
+
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .hero-image {
+    justify-self: flex-start;
+  }
+
+  .section {
+    padding: 48px 16px;
+  }
+
+  .section-heading {
+    margin-bottom: 24px;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tsugawa Yuka | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- お好みで：Webフォント（なくても動きます） -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- ヘッダー -->
+  <header class="site-header">
+    <div class="logo">Yuka Tsugawa</div>
+    <nav class="site-nav">
+      <a href="#about">About</a>
+      <a href="#works">Works</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero" id="top">
+      <div class="hero-inner">
+        <div class="hero-text" data-animate="fade-up">
+          <p class="hero-label">Web / Game / Photo</p>
+          <h1>津川 柚香</h1>
+          <p class="hero-copy">
+            Web とゲーム、そして写真。<br>
+            つくることと、魅せることが好きなクリエイターです。
+          </p>
+          <p class="hero-sub">
+            尚美学園大学 情報表現学科 3年 / Web 制作・Unity ゲーム・写真・Adobe CC
+          </p>
+          <a href="#works" class="btn-primary">作品を見る</a>
+        </div>
+        <div class="hero-image" data-animate="fade-left">
+  <div class="hero-photo-frame slideshow-hero">
+    <img src="images/main01.jpg" alt="メインビジュアル1" class="active">
+    <img src="images/main02.jpg" alt="メインビジュアル2">
+    <img src="images/main03.jpg" alt="メインビジュアル3">
+  </div>
+</div>
+
+
+      </div>
+      </section> 
+      <div class="accent-wave-line" aria-hidden="true">
+  <svg
+  class="accent-wave-line-svg"
+  viewBox="0 -1.4 10 2.8"
+  preserveAspectRatio="none"
+  style="overflow: visible;"
+>
+  <path
+    class="accent-wave-line-path"
+    d="M0,0 Q2.5,1 5,0 Q7.5,-1 10,0"
+  />
+</svg>
+
+</div>
+  <section class="section" id="about">
+
+      <div class="section-heading" data-animate="fade-up">
+        <h2 class="section-title">About</h2>
+        <p class="section-lead">
+          Web とゲーム、写真を軸に、体験をデザインする学生です。
+        </p>
+      </div>
+      <div class="section-inner about-grid">
+        <div class="about-text" data-animate="fade-up">
+          <p>
+            尚美学園大学 情報表現学科で、プログラミング・デザイン・メディア表現を幅広く学んでいます。<br>
+            HTML/cssを用いたWebサイトコーディングだけでなく、JavaScript と Firebase を用いた Web アプリ制作、Unity でのゲーム制作や、
+            そして Sony α7RIII を使った写真撮影・レタッチを行っています。
+          </p>
+          <p>
+            「触って楽しい」「見て気持ちいい」体験をつくることが好きで、
+            デジタルとリアルのどちらにも届く表現を模索しています。
+          </p>
+        </div>
+        <div class="about-meta" data-animate="fade-up">
+          <dl>
+            <div>
+              <dt>興味のある領域</dt>
+              <dd>Web / 写真 / インタラクティブアート / ゲーム</dd>
+            </div>
+            <div>
+              <dt>よく使うツール</dt>
+              <dd>VS Code / GitHub / Adobe Photoshop / Lightroom / Illustrator / Unity</dd>
+            </div>
+            <div>
+              <dt>最近のテーマ</dt>
+              <dd>非接触ジェスチャー操作ゲーム / cssアニメーション / <br>
+                保護犬応援カフェ「LuckLick」: SNS・Web運用</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
+<div class="accent-wave-line wave-reverse" aria-hidden="true">
+  <svg
+    class="accent-wave-line-svg"
+    viewBox="0 -1.4 12 3"
+    preserveAspectRatio="none"
+  >
+    <defs>
+      <!-- ★濃緑→透明グラデーション（右→左流れ用） -->
+      <linearGradient id="wave-grad-reverse" x1="100%" y1="0%" x2="0%" y2="0%">
+        <stop offset="0%"   stop-color="rgba(0,120,80,0)" />
+        <stop offset="50%"  stop-color="rgba(0,120,80,0.25)" />
+        <stop offset="100%" stop-color="rgba(0,120,80,1)" />
+      </linearGradient>
+    </defs>
+
+    <!-- ★波形を少し変えた例（振り幅UP） -->
+    <path
+      class="accent-wave-line-path reverse"
+      d="M0,0 Q2,-1 4,0 Q6,1 8,0 Q10,-1 12,-3.5"
+    />
+  </svg>
+</div>
+
+    <!-- Works -->
+    <section class="section section-alt" id="works">
+      <div class="section-heading" data-animate="fade-up">
+        <h2 class="section-title">Works</h2>
+        <p class="section-lead">
+          Web サイト制作やゲーム制作など、「触れる作品」を中心としたポートフォリオです。
+        </p>
+      </div>
+
+      <div class="section-inner works-grid">
+        <!-- Work 1: Web -->
+        <!-- Work : LuckLick 3rd Anniversary Website -->
+<article class="work-card" data-animate="fade-up">
+  <figure class="work-thumb">
+    <!-- ここをあなたのモック画像に変更 -->
+    <img src="images/img01.png" alt="LuckLick 3周年記念特設サイト">
+  </figure>
+
+  <div class="work-body">
+    <h3 class="work-title">LuckLick 3rd Anniversary Website</h3>
+    <p class="work-meta">Web / Event / Responsive</p>
+
+    <p class="work-desc">
+      犬カフェ「LuckLick」の3周年記念イベントに合わせて制作した特設サイト。<br>
+      店舗でのフォトコンテスト企画に合わせ、<b>応募・店頭投票・結果発表までの流れ</b>が視覚的に伝わるデザインを意識しました。<br>
+      スマホからのアクセスを前提にUIを最適化し、<b>店内ポスターのQRコード経由で誘導される動線</b>も設計しました。
+    </p>
+
+    <dl class="work-detail">
+      <div>
+        <dt>担当</dt>
+        <dd>デザイン / コーディング / UI設計 / 画像編集</dd>
+      </div>
+      <div>
+        <dt>技術</dt>
+        <dd>HTML / CSS / JavaScript / Firebase / Cloudinary</dd>
+      </div>
+    </dl>
+
+    <div class="work-links">
+      <!-- 公開URLがあるならここに入れる -->
+      <a href="LuckLick_photocon2025/index.html" target="_blank" rel="noopener noreferrer">サイトを見る</a>
+      <!-- GitHubがあるなら追加（任意） -->
+      <!-- <a href="#" target="_blank" rel="noopener noreferrer">GitHub</a> -->
+    </div>
+  </div>
+</article>
+
+
+        <!-- Work 2: Game -->
+        <!-- Work : Gallery Site -->
+<!-- Work : Dog Photo Gallery Website -->
+<article class="work-card" data-animate="fade-up">
+  <figure class="work-thumb">
+    <!-- ここをギャラリーサイトのPC＋スマホモック画像に差し替えてね -->
+    <img src="images/img02.png" alt="犬のフォトギャラリーサイト">
+  </figure>
+
+  <div class="work-body">
+    <h3 class="work-title">Dog Photo Gallery Website</h3>
+    <p class="work-meta">Web / Photo / Responsive</p>
+
+    <p class="work-desc">
+      初めて自分でコーディングを行った作品です。<br>
+      保護犬応援カフェ「LuckLick」にお越しくださったわんちゃんのお写真を中心に作品をまとめた<b>個人ギャラリーサイト</b>。<br>
+      やわらかいグラデーション背景と余白のあるレイアウトで、
+      写真の表情や雰囲気が引き立つようにデザインしました。<br>
+      <b>自身のロゴの制作</b>や、Googleマップの挿入など、初歩的な技術を生かして制作しました。
+      
+    </p>
+
+    <dl class="work-detail">
+      <div>
+        <dt>担当</dt>
+        <dd>コンセプト設計 / デザイン / コーディング / 写真撮影・レタッチ</dd>
+      </div>
+      <div>
+        <dt>技術</dt>
+        <dd>HTML / CSS / JavaScript / Lightroom / Photoshop / Illustrator</dd>
+      </div>
+    </dl>
+
+    <div class="work-links">
+      <!-- 公開URLがあればここに入れる -->
+      <a href="mygallery/index.html" target="_blank" rel="noopener noreferrer">サイトを見る</a>
+      <!-- GitHub があればここも使う（なければ消してOK） -->
+      <!-- <a href="#" target="_blank" rel="noopener noreferrer">GitHub</a> -->
+    </div>
+  </div>
+</article>
+
+
+<!-- Work : Poster Design (Print) -->
+<article class="work-card" data-animate="fade-up">
+  <figure class="work-thumb">
+    <img src="images/img03.png" alt="ポスター制作（学内掲示 / 店舗イベント）">
+  </figure>
+
+  <div class="work-body">
+    <h3 class="work-title">Poster Design for Events</h3>
+    <p class="work-meta">Print / Graphic / Promotion</p>
+
+    <p class="work-desc">
+      学内掲示用の制作者募集ポスターと、
+      保護犬応援カフェ「LuckLick」の3周年記念イベントに合わせた
+      フォトコンテスト告知ポスターの2種類を制作しました。<br><br>
+      掲示場所と閲覧環境に応じて情報密度・視線誘導・色設計を調整し、
+      QRコードからWebへ誘導する動線も含めてデザインしています。
+    </p>
+
+    <dl class="work-detail">
+      <div>
+        <dt>担当</dt>
+        <dd>コンセプト設計 / レイアウト / グラフィック / QR導線設計</dd>
+      </div>
+      <div>
+        <dt>使用ツール</dt>
+        <dd>Illustrator / Photoshop / Lightroom / Canva</dd>
+      </div>
+    </dl>
+    <div class="work-links">
+      <!-- 公開URLがあればここに入れる -->
+      <a href="images/work01.pdf" target="_blank" rel="noopener noreferrer">LuckLickポスター.pdf</a>
+      <a href="images/work02.pdf" target="_blank" rel="noopener noreferrer">制作者募集ポスター.pdf</a>
+
+      <!-- GitHub があればここも使う（なければ消してOK） -->
+      <!-- <a href="#" target="_blank" rel="noopener noreferrer">GitHub</a> -->
+    </div>
+  </div>
+</article>
+
+
+      </div>
+    </section>
+
+    <!-- Gallery（写真） -->
+    <section class="section" id="gallery">
+      <div class="section-heading" data-animate="fade-up">
+        <h2 class="section-title">Photo Gallery</h2>
+        <p class="section-lead">
+          Dog café、日常、イベントなど、光の雰囲気を大切に撮影した写真です。
+        </p>
+      </div>
+
+      <div class="section-inner">
+        <!-- カテゴリラベル -->
+        <div class="gallery-tags" data-animate="fade-up">
+          <span class="tag">Dog café</span>
+          <span class="tag">City</span>
+          <span class="tag">natural</span>
+        </div>
+
+        <div class="gallery-grid">
+          <!-- 好きなだけ figure を増やしてOK -->
+          <figure class="gallery-item" data-animate="fade-up">
+            <img src="images/gallery01.jpg" alt="ギャラリー写真1">
+          </figure>
+          <figure class="gallery-item" data-animate="fade-up">
+            <img src="images/gallery02.jpg" alt="ギャラリー写真2">
+          </figure>
+          <figure class="gallery-item" data-animate="fade-up">
+            <img src="images/gallery03.jpg" alt="ギャラリー写真3">
+          </figure>
+          <figure class="gallery-item" data-animate="fade-up">
+            <img src="images/gallery04.jpg" alt="ギャラリー写真4">
+          </figure>
+          <figure class="gallery-item" data-animate="fade-up">
+            <img src="images/gallery05.jpg" alt="ギャラリー写真5">
+          </figure>
+          <figure class="gallery-item" data-animate="fade-up">
+            <img src="images/gallery06.jpg" alt="ギャラリー写真6">
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="section section-alt" id="skills">
+      <div class="section-heading" data-animate="fade-up">
+        <h2 class="section-title">Skills</h2>
+        <p class="section-lead">
+          デザインから実装、撮影・レタッチまで、一人で完結できる領域を広げています。
+        </p>
+      </div>
+
+      <div class="section-inner skills-grid">
+        <div class="skill-block" data-animate="fade-up">
+          <h3>Web</h3>
+          <ul>
+            <li>HTML / CSS / JavaScript</li>
+            <li>レスポンシブ Web デザイン</li>
+            <li>Firebase / Cloudinary を用いたフォーム・画像アップロード</li>
+          </ul>
+        </div>
+        <div class="skill-block" data-animate="fade-up">
+          <h3>Game / Interactive</h3>
+          <ul>
+            <li>Unity / C#（2D / 3D）</li>
+            <li>カメラ・ジェスチャー・マイク入力を用いたインタラクション</li>
+            <li>ゲーム UI / カメラワークの設計</li>
+          </ul>
+        </div>
+        <div class="skill-block" data-animate="fade-up">
+          <h3>Photo &amp; Adobe</h3>
+          <ul>
+            <li>一眼レフカメラによる撮影(主に静止画像)</li>
+            <li>Photoshop / Lightroom によるレタッチ・色調整</li>
+            <li>Illustrator でのロゴ・アイコン制作</li>
+            <li>Premiere Pro / After Effects（授業レベル）</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section" id="contact">
+      <div class="section-heading" data-animate="fade-up">
+        <h2 class="section-title">Contact</h2>
+        <p class="section-lead">
+          制作のご相談やコラボレーションなど、お気軽にご連絡ください。
+        </p>
+      </div>
+
+      <div class="section-inner contact-inner" data-animate="fade-up">
+        <p class="contact-mail">
+          <a href="mailto:ryakkuynk730@i.softbank.jp">ryakkuynk730@i.softbank.jp</a>
+        </p>
+        <div class="contact-links">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <small>&copy; 2025 Tsugawa Yuka</small>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
